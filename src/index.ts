@@ -3,20 +3,20 @@ import mongoose from "mongoose";
 import financialRecordRouter from "./routes/financial-records";
 
 const app: Express = express();
-const port = process.env.PORT || 420;
+const port = process.env.PORT || 3001;
 
 app.use(express.json());
 
 const mongoURI: string =
-  "mongodb+srv://Jayce:PDIDDY@mernapp.qhyogvg.mongodb.net/?retryWrites=true&w=majority&appName=mernapp";
+  "mongodb+srv://Jayce:password@mernapp.qhyogvg.mongodb.net/";
 
 mongoose
   .connect(mongoURI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log("Failed to connect to MongoDB", err));
+  .then(() => console.log("CONNECTED TO MONGODB!"))
+  .catch((err) => console.error("Failed to Connect to MongoDB:", err));
 
-app.use("/financial-records, financialRecordRouter"); //extension alternative to access endpoint in financial-records.ts. Double check this.
+app.use("/financial-records", financialRecordRouter); //extension alternative to access endpoint in financial-records.ts. Double check this.
 
 app.listen(port, () => {
-  console.log(`Server running on PORT: ${port}`);
+  console.log(`Server Running on Port ${port}`);
 });
