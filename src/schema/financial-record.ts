@@ -7,7 +7,7 @@ interface FinancialRecord {
   description: string;
   amount: number;
   category: string;
-  paymentMethod: string; // "Income" or "Expense"
+  paymentMethod: string;
 }
 
 //schema for financial record
